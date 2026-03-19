@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 # Load environment variables
 load_dotenv()
 
-API_KEY = os.getenv("OPENROUTER_API_KEY", "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")
+API_KEY = os.getenv("OPENROUTER_API_KEY")
 
 def analyze_code(code: str) -> str:
     """
