@@ -23,6 +23,21 @@ function switchScreen(id) {
     document.getElementById(id).classList.add('active');
 }
 
+// Sidebar toggle for mobile
+function toggleSidebar(sidebarId) {
+    const sidebar = document.getElementById(sidebarId);
+    const overlayId = sidebarId === 'app-sidebar' ? 'app-sidebar-overlay' : 'admin-sidebar-overlay';
+    const overlay = document.getElementById(overlayId);
+    
+    if (sidebar.classList.contains('open')) {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('active');
+    } else {
+        sidebar.classList.add('open');
+        overlay.classList.add('active');
+    }
+}
+
 // ──────────────────────────────────────────
 // Auth tab switching
 // ──────────────────────────────────────────

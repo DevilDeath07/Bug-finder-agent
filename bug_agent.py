@@ -42,6 +42,10 @@ Code:
 
     try:
         response = requests.post(url, headers=headers, json=data, timeout=30)
+        
+        if response.status_code == 401:
+            return "⚠️ Error 401 Unauthorized: Your OpenRouter API key is invalid, revoked, or expired. Please generate a new key at openrouter.ai and update your `.env` file."
+            
         response.raise_for_status()
         result = response.json()
         
