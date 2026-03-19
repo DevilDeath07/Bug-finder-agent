@@ -79,6 +79,8 @@
     border-bottom: 1px solid var(--border);
     z-index: 90;
     flex-shrink: 0;
+    position: sticky;
+    top: 0;
 }
 .menu-toggle-btn {
     background: transparent; border: none; color: var(--text); padding: 4px;
@@ -116,7 +118,11 @@
     .mobile-close-sidebar { display: flex; }
     
     .stats-row { flex-direction: column; }
-    .admin-main { padding: 16px; }
+    
+    /* Handle Admin scrolling so sticky header goes edge to edge */
+    .admin-main { padding: 0; }
+    .admin-tab-content { padding: 16px; }
+    
     .message { padding-left: 14px; padding-right: 14px; }
     .input-area { padding: 12px 16px 16px; }
     
