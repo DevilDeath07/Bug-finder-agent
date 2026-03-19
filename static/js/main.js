@@ -215,9 +215,10 @@ function friendlyLoginError(code) {
         'auth/network-request-failed':    'Network error. Please check your connection.',
         'auth/user-disabled':             'This account has been disabled.',
         'auth/operation-not-allowed':     'Sign-in is currently disabled.',
+        'auth/invalid-api-key':           'Server misconfiguration: Firebase API key missing or invalid.'
     };
     if (!map[code]) console.warn('[Auth] Unhandled login error code:', code);
-    return map[code] || 'An error occurred during sign in. Please try again.';
+    return map[code] || `An error occurred during sign in. (${code})`;
 }
 
 function friendlyRegisterError(code) {
@@ -228,9 +229,10 @@ function friendlyRegisterError(code) {
         'auth/invalid-credential':        'Please enter a valid email address.',
         'auth/network-request-failed':    'Network error. Please check your connection.',
         'auth/operation-not-allowed':     'Registration is currently disabled.',
+        'auth/invalid-api-key':           'Server misconfiguration: Firebase API key missing or invalid.'
     };
     if (!map[code]) console.warn('[Auth] Unhandled register error code:', code);
-    return map[code] || 'An error occurred during registration. Please try again.';
+    return map[code] || `An error occurred during registration. (${code})`;
 }
 
 // ──────────────────────────────────────────
