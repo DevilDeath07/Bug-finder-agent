@@ -12,11 +12,14 @@ load_dotenv()
 class CodeRequest(BaseModel):
     code: str
 
+# Setup exact file roots for Vercel serverless environment
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 app = FastAPI(title="AI Bug Finder", description="An intelligent code analysis agent")
 
-# Mount static files and templates
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+# Mount static files and templates explicitly
+app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "static")), name="static")
+templates = Jinja2Templates(directory=os.path.join(BASE_DIR, "templates"))
 
 @app.get("/")
 async def home(request: Request):
