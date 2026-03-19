@@ -133,7 +133,8 @@ function evalPasswordStrength(pw) {
     let W = canvas.width  = window.innerWidth;
     let H = canvas.height = window.innerHeight;
     window.addEventListener('resize', () => { W = canvas.width = window.innerWidth; H = canvas.height = window.innerHeight; });
-    const pts = Array.from({ length: 60 }, () => ({
+    const isMobile = window.innerWidth <= 768;
+    const pts = Array.from({ length: isMobile ? 20 : 60 }, () => ({
         x: Math.random() * W, y: Math.random() * H,
         vx: (Math.random() - 0.5) * 0.4,
         vy: (Math.random() - 0.5) * 0.4,
