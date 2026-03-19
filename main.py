@@ -23,7 +23,17 @@ async def home(request: Request):
     """Renders the main application UI."""
     return templates.TemplateResponse("index.html", {"request": request})
 
-@app.get("/static/js/firebase-config.js")
+@app.get("/api/health")
+async def health_check():
+    """Diagnostic route to verify if Environment Variables are actually securely mounted on Render."""
+    key = os.getenv("FIREBASE_API_KEY", "")
+    return {
+        "status": "online",
+        "firebase_api_key_loaded": bool(key),
+        "openrouter_api_key_loaded": bool(os.getenv("OPENROUTER_API_KEY", ""))
+    }
+
+@app.get("/firebase-config.js")
 async def get_firebase_config(request: Request):
     """Serves the firebase config script with injected environment variables."""
     firebase_config = {
