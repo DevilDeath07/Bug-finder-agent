@@ -1,0 +1,20 @@
+# Python Environments
+.env
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE & Editor
+.vscode/
+.idea/
+.gemini/
+
+# Operating System
+.DS_Store
+Thumbs.db
